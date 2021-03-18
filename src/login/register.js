@@ -2,12 +2,12 @@ import React from 'react';
 
 class register extends React.Component {
             state={
-                id:23,
+                id:25,
                 firstName: '',
                 lastName: '',
                 email: '',
                 userName:'',
-                password: '',
+                password: ''
             }
 
         handleChange = (e) =>{
@@ -41,7 +41,8 @@ class register extends React.Component {
                             <input type='email' name='email' placeholder='email...' required onChange={this.handleChange}/>
                             <input type='text' name='userName' placeholder='username...' required onChange={this.handleChange}/>
                             <input type='password' name='password' placeholder='password...' required onChange={this.handleChange}/>
-                            <select defaultValue="client">
+                            <select defaultValue="client" onChange={this.handleChange}>
+                                userType
                                 <option value="taxi">taxi</option>
                                 <option value="admin">admin</option>
                                 <option value="client">client</option>

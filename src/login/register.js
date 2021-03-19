@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from "react-router-dom";
 
 class register extends React.Component {
             state={
@@ -27,7 +28,7 @@ class register extends React.Component {
                 },
                 body: JSON.stringify(this.state)
                 }).then( res => {
-                    console.log(res)
+                    console.log(this.state)
                 });
         }
         render(){

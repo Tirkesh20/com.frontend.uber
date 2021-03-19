@@ -1,11 +1,12 @@
 import React from 'react';
 import './login.css';
+import {Redirect} from "react-router-dom";
 class Login extends React.Component{
     state={
         userName:'',
-        password:''
+        password:'',
+        redirect:false
     }
-
 
     handleChange = (e) =>{
         const {name,value} = e.target
@@ -23,11 +24,19 @@ class Login extends React.Component{
             },
             body: JSON.stringify(this.state)
         }).then( res => {
-            console.log(res)
+            if (res.status===200||res.status===201){
+                this.setState({ redirect: true });
+            }  else{
+                this.setState({ redirect: false})}
+            console.log(this.state)
         });
 
     }
     render(){
+        const { redirect } = this.state;
+        if (redirect) {
+            return <Redirect to='./main'/>;
+        }
         return(
             <div className='div-login'>
                 <div className='div-login-logo'>
@@ -41,6 +50,7 @@ class Login extends React.Component{
                 </div>
             </div>
         )
+
     }
 }
 

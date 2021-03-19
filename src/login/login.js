@@ -6,6 +6,7 @@ class Login extends React.Component{
         password:''
     }
 
+
     handleChange = (e) =>{
         const {name,value} = e.target
         this.setState({[name]:value})
@@ -24,6 +25,7 @@ class Login extends React.Component{
         }).then( res => {
             console.log(res)
         });
+
     }
     render(){
         return(

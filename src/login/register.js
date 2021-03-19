@@ -2,12 +2,13 @@ import React from 'react';
 
 class register extends React.Component {
             state={
-                id:25,
+                id:1,
                 firstName: '',
                 lastName: '',
                 email: '',
                 userName:'',
-                password: ''
+                password: '',
+                userType: ''
             }
 
         handleChange = (e) =>{
@@ -41,11 +42,10 @@ class register extends React.Component {
                             <input type='email' name='email' placeholder='email...' required onChange={this.handleChange}/>
                             <input type='text' name='userName' placeholder='username...' required onChange={this.handleChange}/>
                             <input type='password' name='password' placeholder='password...' required onChange={this.handleChange}/>
-                            <select defaultValue="client" onChange={this.handleChange}>
-                                userType
-                                <option value="taxi">taxi</option>
-                                <option value="admin">admin</option>
-                                <option value="client">client</option>
+                            <select name='userType' defaultValue="CLIENT" onChange={this.handleChange}>
+                                <option value="TAXI">taxi</option>
+                                <option value="ADMIN">admin</option>
+                                <option value="CLIENT">client</option>
                             </select>
                             <button onSubmit={this.handleSubmit}>register</button>
                         </form>

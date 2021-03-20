@@ -16,6 +16,20 @@ module.exports = (app) => {
             security:false
         })
     )
+    app.use (
+        createProxyMiddleware("/order/create" , {
+            target: "http://localhost:8080/",
+            changeOrigin:true,
+            security:false
+        })
+    )
+    app.use (
+        createProxyMiddleware("/location/create" , {
+            target: "http://localhost:8080/",
+            changeOrigin:true,
+            security:false
+        })
+    )
 
 
 }

@@ -8,8 +8,7 @@ module.exports = (app) => {
             security:false
         })
     )
-}
-module.exports = (app) => {
+
     app.use (
         createProxyMiddleware("/login" , {
             target: "http://localhost:8080/",
@@ -17,4 +16,6 @@ module.exports = (app) => {
             security:false
         })
     )
+
+
 }

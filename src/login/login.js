@@ -5,7 +5,8 @@ class Login extends React.Component{
     state={
         userName:'',
         password:'',
-        redirect:false
+        redirect:false,
+        error:false
     }
 
     handleChange = (e) =>{
@@ -28,14 +29,19 @@ class Login extends React.Component{
                 this.setState({ redirect: true });
             }  else{
                 this.setState({ redirect: false})}
+            this.setState({error: true})
             console.log(this.state)
         });
 
     }
     render(){
         const { redirect } = this.state;
+        const{error} = this.state;
         if (redirect) {
-            return <Redirect to='./main'/>;
+            return <Redirect to='/home'/>;
+        }
+        if (error){
+            return <Redirect to='/log'/>;
         }
         return(
             <div className='div-login'>

@@ -3,13 +3,15 @@ import {Redirect} from "react-router-dom";
 
 class register extends React.Component {
             state={
-                id:1,
+                id:3,
                 firstName: '',
                 lastName: '',
                 email: '',
                 userName:'',
                 password: '',
-                userType: ''
+                userType: '',
+                redirect:false,
+                error:false
             }
 
         handleChange = (e) =>{
@@ -28,10 +30,29 @@ class register extends React.Component {
                 },
                 body: JSON.stringify(this.state)
                 }).then( res => {
+                if (res.status===200||res.status===201){
+                    this.setState({ redirect: true });
+                }  else{
+                    this.setState({ redirect: false})
+                }
+                if (res.status===404)
+                    this.setState({ error:true})
+
+                this.setState({error: true})
+
                     console.log(this.state)
                 });
         }
         render(){
+            const { redirect } = this.state;
+            const{error} = this.state;
+            if (redirect) {
+                return <Redirect to='/log'/>;
+            }
+            if (error){
+                return <Redirect to='/reg'/>;
+            }
+
             return(
                 <div className='div-login'>
                     <div className='div-login-logo'>

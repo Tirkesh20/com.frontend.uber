@@ -3,10 +3,10 @@ import {Redirect} from "react-router-dom";
 
 class createLocation extends React.Component {
     state={
-        id:1,
-        firstName: '',
-        lastName: '',
-        email: '',
+        lat:'',
+        lng: '',
+        lat2: '',
+        lng2: '',
     }
 
     handleChange = (e) =>{
@@ -25,11 +25,6 @@ class createLocation extends React.Component {
             },
             body: JSON.stringify(this.state)
         }).then( res => {
-            if (res.status===200||res.status===201){
-                this.setState({ redirect: true });
-            }  else{
-                this.setState({ redirect: false})
-            }
             if (res.status===404)
                 this.setState({ error:true})
 
@@ -54,16 +49,10 @@ class createLocation extends React.Component {
                 </div>
                 <div>
                     <form onSubmit = {this.handleSubmit}>
-                        <input type='text' name='firstName' placeholder='firstname...' required onChange={this.handleChange}/>
-                        <input type='text' name='lastName' placeholder='lastname...' required onChange={this.handleChange}/>
-                        <input type='email' name='email' placeholder='email...' required onChange={this.handleChange}/>
-                        <input type='text' name='userName' placeholder='username...' required onChange={this.handleChange}/>
-                        <input type='password' name='password' placeholder='password...' required onChange={this.handleChange}/>
-                        <select name='userType' defaultValue="CLIENT" onChange={this.handleChange}>
-                            <option value="TAXI">taxi</option>
-                            <option value="ADMIN">admin</option>
-                            <option value="CLIENT">client</option>
-                        </select>
+                        <input type='text' name='lat' placeholder='from' required onChange={this.handleChange}/>
+                        <input type='text' name='lng' placeholder='from...' required onChange={this.handleChange}/>
+                        <input type='text' name='lat2' placeholder='to...' required onChange={this.handleChange}/>
+                        <input type='text' name='lng2' placeholder='to...' required onChange={this.handleChange}/>
                         <button onSubmit={this.handleSubmit}>register</button>
                     </form>
                 </div>

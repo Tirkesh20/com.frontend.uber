@@ -4,7 +4,7 @@ import login from './login/login'
 import register from "./login/register";
 import main from './main';
 import userInterface from './userInterface';
-import createLocation from "./components/createLocation";
+import createLocation from "./components/CreateLocation";
 import createOrder from"./components/createOrder"
 
 const App=()=> {

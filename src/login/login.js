@@ -24,8 +24,11 @@ class Login extends React.Component{
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(this.state)
+
         }).then( res => {
             if (res.status===200||res.status===201){
+              this.setData()
+                this.getData()
                 this.setState({ redirect: true });
             }  else{
                 this.setState({ redirect: false})}
@@ -34,11 +37,22 @@ class Login extends React.Component{
         });
 
     }
+    setData(){
+        localStorage.setItem('session', JSON.stringify(this.state))
+        console.log(this.state)
+    }
+    getData() {
+        let data =localStorage.getItem('session');
+        data=JSON.parse(data);
+        console.log(data)
+    }
     render(){
         const { redirect } = this.state;
         const{error} = this.state;
         if (redirect) {
-            return <Redirect to='/home'/>;
+           let x =()=>this.setData();
+           let y=()=>this.getData();
+            return <Redirect on={()=>this.setData()} to='/home'/>;
         }
         if (error){
             return <Redirect to='/log'/>;

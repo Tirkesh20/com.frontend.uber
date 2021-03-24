@@ -50,9 +50,7 @@ class Login extends React.Component{
         const { redirect } = this.state;
         const{error} = this.state;
         if (redirect) {
-           let x =()=>this.setData();
-           let y=()=>this.getData();
-            return <Redirect on={()=>this.setData()} to='/home'/>;
+            return <Redirect  to='/home'/>;
         }
         if (error){
             return <Redirect to='/log'/>;

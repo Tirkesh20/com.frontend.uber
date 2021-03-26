@@ -2,14 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {Hello} from "./components/hello";
-import CreateLocation from './components/CreateLocation'
+
 
 ReactDOM.render(
   <React.StrictMode>
-      <Hello/>
       <App />
-      <CreateLocation/>
   </React.StrictMode>,
   document.getElementById('root')
 );

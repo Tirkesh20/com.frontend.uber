@@ -16,7 +16,7 @@ const App=()=> {
                 <Route exact path='/reg' component={register}/>
                 <Route exact path='/log' component={login}/>
                 <Route exact path='/home' component={userInterface}/>
-                <Route exact path='/order/create' component={createOrder}/>
+                <Route exact path='/order' component={createOrder}/>
                 <Route exact path='/location/create' component={createLocation}/>
             </Switch>
             </Router>

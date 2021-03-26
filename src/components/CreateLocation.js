@@ -1,29 +1,28 @@
-import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { YMaps, Map, Placemark } from 'react-yandex-maps';
+import React from "react";
 
-const mapStyles = {
-    width: '100%',
-    height: '100%'
-};
-
-export class MapContainer extends Component {
+export class CreateLocation extends React.Component {
+constructor(props) {
+    super(props);
+}
     render() {
+        const mapData = {
+            center: [55.751574, 37.573856],
+            zoom: 5,
+        };
+        const coordinates = [
+            [55.684758, 37.738521],
+            [57.684758, 39.738521]
+        ];
         return (
-            <Map
-                google={this.props.google}
-                zoom={14}
-                style={mapStyles}
-                initialCenter={
-                    {
-                        lat: -1.2884,
-                        lng: 36.8233
-                    }
-                }
-            />
+            <YMaps>
+                <div>
+                    <Map defaultState={mapData}>
+                        {coordinates.map(coordinate => <Placemark geometry={coordinate} />)}
+                    </Map>
+                </div>
+            </YMaps>
         );
     }
 }
-
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyDjvRB2R3fsmcmU_pXTHvhIKOTLyJ30wNQ'
-})(MapContainer);
+export default CreateLocation;

@@ -35,7 +35,6 @@ class Login extends React.Component{
             this.setState({error: true})
             console.log(this.state)
         });
-
     }
     setData(){
         localStorage.setItem('session', JSON.stringify(this.state))

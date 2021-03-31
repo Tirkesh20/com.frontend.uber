@@ -5,7 +5,7 @@ import register from "./login/register";
 import main from './main';
 import userInterface from './userInterface';
 import createLocation from "./components/CreateLocation";
-import createOrder from"./components/createOrder"
+import CreateOrder from "./components/CreateOrder"
 
 const App=()=> {
   return (
@@ -16,7 +16,7 @@ const App=()=> {
                 <Route exact path='/reg' component={register}/>
                 <Route exact path='/log' component={login}/>
                 <Route exact path='/home' component={userInterface}/>
-                <Route exact path='/order' component={createOrder}/>
+                <Route exact path='/order' component={CreateOrder}/>
                 <Route exact path='/location/create' component={createLocation}/>
             </Switch>
             </Router>
